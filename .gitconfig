@@ -1,0 +1,6 @@
+[user]
+	name = Greg Musick
+	email = greg@substantial.com
+[core]
+	autosetuprebase = true
+	editor = mvim -f

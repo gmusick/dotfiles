@@ -1,0 +1,7 @@
+--all-types
+--smart-case
+--type-add=ruby=.haml,.feature
+--type-add=css=.sass,.scss
+--ignore-dir=tmp
+--ignore-dir=.sass-cache
+--ignore-dir=log
