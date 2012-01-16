@@ -1,0 +1,20 @@
+map <C-j> <C-w>j
+imap <C-j> <Esc> <C-w>j
+map <C-k> <C-w>k
+imap <C-k> <Esc> <C-w>k
+map <C-h> <C-w>h
+imap <C-h> <Esc> <C-w>h
+map <C-l> <C-w>l
+imap <C-l> <Esc> <C-w>l
+
+set hidden
+
+map <Leader>/ :Ack!<space>
+map <Leader>. :ccl<CR>
+map <Leader>, :botright cw<CR>
+
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_height = 20
+
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>f :CtrlPMRU<CR>
