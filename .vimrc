@@ -115,17 +115,8 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 map <Leader>= <C-w>=
 
 " keep visual selection when indenting or outdenting
-vmap <A-]> >gv
-vmap <A-[> <gv
-
-nmap <A-]> >>
-nmap <A-[> <<
-
-omap <A-]> >>
-omap <A-[> <<
-
-imap <A-]> <Esc>>>i
-imap <A-[> <Esc><<i
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 " search using ack
 map <Leader>f :Ack!<space>
@@ -143,29 +134,3 @@ let g:ctrlp_match_window_reversed = 0
 map <Leader><Leader> :CtrlPMRU<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" bundle examples
-"""""""""""""""""""""""""""""""""""""""""""""""
-"original repos on github
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
