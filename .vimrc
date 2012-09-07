@@ -17,6 +17,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'nono/vim-handlebars'
 Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
@@ -119,7 +121,7 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " search using ack
-map <Leader>f :Ack!<space>
+map <C-S-f> :Ack!<space>
 
 " remove highlighted term
 nnoremap <silent> <Leader>. :nohlsearch<CR>
@@ -130,7 +132,21 @@ nnoremap <silent> <Leader>. :nohlsearch<CR>
 " reverse results
 let g:ctrlp_match_window_reversed = 0
 
+" more results
+let g:ctrlp_max_height = 20
+
+" clear cache inside ctrl-p
+let g:ctrlp_prompt_mappings = {'PrtClearCache()': ['<c-s-r>']}
+
 " view most recently used files
 map <Leader><Leader> :CtrlPMRU<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+" nerd commenter
+"""""""""""""""""""""""""""""""""""""""""""""""
+" toggle comments
+map <Leader>/ <plug>NERDCommenterToggle
 
 """""""""""""""""""""""""""""""""""""""""""""""
