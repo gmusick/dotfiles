@@ -19,6 +19,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'bkad/CamelCaseMotion'
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
@@ -34,7 +35,7 @@ set encoding=utf-8  " set default encoding to UTF-8
 
 set visualbell  " don't beep
 
-set guifont=Inconsolata-g:h12
+set guifont=Inconsolata-g:h13
 set guioptions-=T
 
 set nowrap  " don't wrap lines
@@ -76,30 +77,40 @@ set laststatus=2  " always show the status bar
 " autocommands
 au BufNewFile,BufRead *.json set ft=javascript  " treat JSON files like JavaScript
 au VimResized * wincmd =  " resize splits when window size changes
+au BufWritePre * :%s/\s\+$//e  " remove trailing whitespace on save
 
 " leader is <space>
 let mapleader=" "
 
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " move around windows easier
-map <C-j> <C-w>j
-imap <C-j> <Esc> <C-w>j
-map <C-k> <C-w>k
-imap <C-k> <Esc> <C-w>k
 map <C-h> <C-w>h
-imap <C-h> <Esc> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
 map <C-l> <C-w>l
-imap <C-l> <Esc> <C-w>l
+
+" for Barton
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
+
+" easy splitting
+map <leader>s :split<cr>
+map <leader>v :vsplit<cr>
+
 
 " format the entire file
-nmap <leader>fef ggVG=
-
-" upper/lower word
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
-
-" upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
+nmap <leader>c ggVG=
 
 " start a :e at the directory of the current open file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
@@ -110,9 +121,6 @@ map <leader>ev :vsp %%
 " insert the current directory into a command-line path
 cmap <C-P> <C-R>=expand("%:p:h") . "/"<CR>
 
-" find merge conflict markers
-nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
 " adjust viewports to the same size
 map <Leader>= <C-w>=
 
@@ -121,10 +129,16 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " search using ack
-map <C-S-f> :Ack!<space>
+map <leader>f :Ack!<space>
+" search for the term under the cursor
+nmap <C-S-f> :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ack! "<C-R><C-W>"<CR>;
+" search for the highlighted term
+vmap <C-S-f> y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ack! "<C-R>=escape(@", '\\"#')<CR>"<CR>;
+" close the quickfix window
+map <leader>q :ccl<CR>
 
 " remove highlighted term
-nnoremap <silent> <Leader>. :nohlsearch<CR>
+nnoremap <silent> <Leader>* :nohlsearch<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp
@@ -150,3 +164,7 @@ map <Leader><Leader> :CtrlPMRU<CR>
 map <Leader>/ <plug>NERDCommenterToggle
 
 """""""""""""""""""""""""""""""""""""""""""""""
+
+map <silent> <Leader>w <Plug>CamelCaseMotion_w
+map <silent> <Leader>b <Plug>CamelCaseMotion_b
+map <silent> <Leader>e <Plug>CamelCaseMotion_e
