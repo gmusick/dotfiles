@@ -65,6 +65,7 @@ set hidden
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem  " disable output and VCS files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz  " disable archive files
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*  " ignore bundler and sass cache
+set wildignore+=*/public/system/*  " ignore assets
 set wildignore+=*.swp,*~,._*  " disable temp and backup files
 
 " backup and swap files
