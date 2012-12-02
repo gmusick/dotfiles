@@ -1,0 +1,7 @@
+[user]
+  name = [name]
+  email = [email]
+[core]
+  autosetuprebase = true
+  editor = vim
+  excludesfile = [path to global excludes file]/.gitignore_global
