@@ -59,3 +59,6 @@ alias rake="bundle exec rake"
 alias gitlog='git log --graph --all --decorate --pretty=format:"%C(magenta)%h %C(blue)%ai %C(green)%an %C(cyan)%s %C(yellow bold)%d"'
 alias gf='git fetch -p'
 alias gfr='gf; grox'
+
+alias ne='PATH=$(npm bin):$PATH'
+
