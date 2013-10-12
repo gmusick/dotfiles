@@ -153,6 +153,10 @@ let g:ctrlp_max_height = 20
 " clear cache inside ctrl-p
 let g:ctrlp_prompt_mappings = {'PrtClearCache()': ['<c-s-r>']}
 
+" use the cwd as the path for ctrl-p (default is to use the nearest ancestor
+" path that contains a .git directory)
+let g:ctrlp_working_path_mode = 'a'
+
 " view most recently used files
 map <Leader><Leader> :CtrlPMRU<CR>
 
