@@ -57,5 +57,5 @@ alias be="bundle exec"
 alias rake="bundle exec rake"
 
 alias gitlog='git log --graph --all --decorate --pretty=format:"%C(magenta)%h %C(blue)%ai %C(green)%an %C(cyan)%s %C(yellow bold)%d"'
-alias gru='git remote update'
-alias gur='gru; grox'
+alias gf='git fetch -p'
+alias gfr='gf; grox'
