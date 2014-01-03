@@ -69,6 +69,7 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz  " disable archive files
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*  " ignore bundler and sass cache
 set wildignore+=*/public/system/*  " ignore assets
 set wildignore+=*.swp,*~,._*  " disable temp and backup files
+set wildignore+=*.meta  " ignore .meta files for Unity3D
 
 " backup and swap files
 set backupdir=~/.vim/_backup//  " where to put backup files
