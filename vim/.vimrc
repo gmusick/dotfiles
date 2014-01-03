@@ -21,6 +21,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ervandew/supertab'
+Bundle 'digitaltoad/vim-jade'
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
