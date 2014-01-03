@@ -20,6 +20,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'ervandew/supertab'
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
@@ -173,3 +174,4 @@ map <Leader>/ <plug>NERDCommenterToggle
 map <silent> <Leader>w <Plug>CamelCaseMotion_w
 map <silent> <Leader>b <Plug>CamelCaseMotion_b
 map <silent> <Leader>e <Plug>CamelCaseMotion_e
+let g:SuperTabDefaultCompletionType = 'context'
