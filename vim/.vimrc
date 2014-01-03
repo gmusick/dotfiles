@@ -78,6 +78,7 @@ set laststatus=2  " always show the status bar
 
 " autocommands
 au BufNewFile,BufRead *.json set ft=javascript  " treat JSON files like JavaScript
+au BufNewFile,BufRead *.json.txt set ft=javascript  " treat JSON files like JavaScript
 au VimResized * wincmd =  " resize splits when window size changes
 au BufWritePre * :%s/\s\+$//e  " remove trailing whitespace on save
 
