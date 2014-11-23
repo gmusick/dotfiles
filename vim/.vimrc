@@ -4,24 +4,26 @@ filetype off  " required
 """""""""""""""""""""""""""""""""""""""""""""""
 " vundle
 """""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'molokai'
-Bundle 'ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'nono/vim-handlebars'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'ervandew/supertab'
-Bundle 'digitaltoad/vim-jade'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'molokai'
+Plugin 'ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'nono/vim-handlebars'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'ervandew/supertab'
+Plugin 'digitaltoad/vim-jade'
+
+call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
