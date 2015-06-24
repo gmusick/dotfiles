@@ -52,7 +52,7 @@ plugins=(git gem osx rails ruby vi-mode rvm)
 
 # User configuration
 
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/share/npm/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -99,3 +99,7 @@ alias gf='git fetch -p'
 alias gfr='gf; grox'
 
 alias ne='PATH=$(npm bin):$PATH'
+
+alias e='open -a Emacs'
+
+eval "$(rbenv init -)"
