@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=/Users/Greg/src/dotfiles/zsh
+ZSH_CUSTOM=$HOME/src/dotfiles/zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -99,7 +99,3 @@ alias gf='git fetch -p'
 alias gfr='gf; grox'
 
 alias ne='PATH=$(npm bin):$PATH'
-
-alias e='open -a Emacs'
-
-eval "$(rbenv init -)"
