@@ -9,17 +9,18 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'molokai'
+Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'nono/vim-handlebars'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'ervandew/supertab'
+Plugin 'yssl/QFEnter'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
@@ -32,7 +33,7 @@ call vundle#end()
 syntax on  " turn on syntax highlighting
 filetype plugin indent on
 
-colorscheme molokai
+colorscheme base16-default
 
 set t_Co=256 " 256 colors
 set number  " show line numbers
@@ -41,8 +42,10 @@ set encoding=utf-8  " set default encoding to UTF-8
 
 set visualbell  " don't beep
 
-set guifont=Inconsolata-g:h13
-set guioptions-=T
+set guifont=hack:h14
+set guioptions-=T  " no tabs
+set guioptions-=L  " no left scrollbar
+set guioptions-=r  " no right scrollbar
 
 set nowrap  " don't wrap lines
 set tabstop=2  " a tab is two spaces
@@ -137,12 +140,15 @@ map <Leader>= <C-w>=
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
-" search using ack
-map <leader>f :Ack!<space>
+" search using ag
+map <leader>f :Ag!<space>
+
+let g:ag_working_path_mode="r"
+
 " search for the term under the cursor
-nmap <C-S-f> :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ack! "<C-R><C-W>"<CR>;
+nmap <C-S-f> :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ag! "<C-R><C-W>"<CR>;
 " search for the highlighted term
-vmap <C-S-f> y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ack! "<C-R>=escape(@", '\\"#')<CR>"<CR>;
+vmap <C-S-f> y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ag! "<C-R>=escape(@", '\\"#')<CR>"<CR>;
 " close the quickfix window
 map <leader>q :ccl<CR>
 
@@ -165,6 +171,8 @@ let g:ctrlp_prompt_mappings = {'PrtClearCache()': ['<c-s-r>']}
 " path that contains a .git directory)
 let g:ctrlp_working_path_mode = 'a'
 
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
 " view most recently used files
 map <Leader><Leader> :CtrlPMRU<CR>
 
@@ -182,3 +190,8 @@ map <silent> <Leader>w <Plug>CamelCaseMotion_w
 map <silent> <Leader>b <Plug>CamelCaseMotion_b
 map <silent> <Leader>e <Plug>CamelCaseMotion_e
 let g:SuperTabDefaultCompletionType = 'context'
+
+" jsx support in .js files
+let g:jsx_ext_required = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
