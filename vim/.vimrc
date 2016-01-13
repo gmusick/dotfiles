@@ -8,7 +8,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'molokai'
 Plugin 'ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline'
@@ -22,6 +21,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'ervandew/supertab'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
