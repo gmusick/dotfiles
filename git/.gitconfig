@@ -1,7 +1,7 @@
 [user]
-  name = [name]
-  email = [email]
+  name = Greg Musick
+  email = greg.musick@gmail.com
 [core]
   autosetuprebase = true
   editor = vim
-  excludesfile = [path to global excludes file]/.gitignore_global
+  excludesfile = ~/src/dotfiles/git/.gitignore_global
