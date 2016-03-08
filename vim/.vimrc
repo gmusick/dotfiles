@@ -25,6 +25,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'othree/html5.vim'
 
 call vundle#end()
 
@@ -195,3 +196,4 @@ let g:SuperTabDefaultCompletionType = 'context'
 let g:jsx_ext_required = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_tidy_exec = '/usr/local/Cellar/tidy-html5/5.1.25/bin/tidy'
