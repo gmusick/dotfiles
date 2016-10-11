@@ -179,6 +179,9 @@ map <Leader><Leader> :CtrlPMRU<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""
 
+map <Leader>\ :NERDTreeToggle<CR>
+map <Leader>] :NERDTreeFind<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""
 " nerd commenter
 """""""""""""""""""""""""""""""""""""""""""""""
