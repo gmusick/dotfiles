@@ -7,7 +7,7 @@ filetype off  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'molokai'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlp.vim'
@@ -15,7 +15,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bkad/CamelCaseMotion'
@@ -141,15 +141,18 @@ map <Leader>= <C-w>=
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
-" search using ag
-map <leader>f :Ag!<space>
+" search using ack
+map <leader>f :Ack!<space>
 
-let g:ag_working_path_mode="r"
+if executable('ag')
+  " use Ag when available
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
 
 " search for the term under the cursor
-nmap <C-S-f> :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ag! "<C-R><C-W>"<CR>;
+nmap <C-S-f> :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ack! "<C-R><C-W>"<CR>;
 " search for the highlighted term
-vmap <C-S-f> y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ag! "<C-R>=escape(@", '\\"#')<CR>"<CR>;
+vmap <C-S-f> y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ack! "<C-R>=escape(@", '\\"#')<CR>"<CR>;
 " close the quickfix window
 map <leader>q :ccl<CR>
 
