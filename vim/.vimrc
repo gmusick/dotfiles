@@ -96,32 +96,15 @@ au BufWritePre * :%s/\s\+$//e  " remove trailing whitespace on save
 " leader is <space>
 let mapleader=" "
 
-" disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
 " move around windows easier
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" for Barton
-map <leader>h <C-w>h
-map <leader>j <C-w>j
-map <leader>k <C-w>k
-map <leader>l <C-w>l
-
 " easy splitting
 map <leader>s :split<cr>
 map <leader>v :vsplit<cr>
-
 
 " format the entire file
 nmap <leader>c ggVG=
