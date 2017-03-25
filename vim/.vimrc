@@ -26,6 +26,7 @@ Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
