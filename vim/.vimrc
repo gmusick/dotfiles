@@ -35,7 +35,7 @@ call vundle#end()
 syntax on  " turn on syntax highlighting
 filetype plugin indent on
 
-colorscheme base16-default
+colorscheme base16-default-dark
 
 set t_Co=256 " 256 colors
 set number  " show line numbers
