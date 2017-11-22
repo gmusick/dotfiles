@@ -1,13 +1,23 @@
+# If you come from bash you might have to change your $PATH.
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$HOME/bin:/usr/local/bin:node_modules/.bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="gmusick"
 
-# Set to this to use case-sensitive completion
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -17,7 +27,7 @@ ZSH_THEME="gmusick"
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
@@ -29,7 +39,7 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -48,15 +58,14 @@ ZSH_CUSTOM=$HOME/src/dotfiles/zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git gem osx rails ruby asdf)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$HOME/bin:node_modules/.bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +81,16 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 function __current_branch_action {
   echo  "git $1`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`"
@@ -98,5 +116,3 @@ alias rake="bundle exec rake"
 alias gitlog='git log --graph --all --decorate --pretty=format:"%C(magenta)%h %C(blue)%ai %C(green)%an %C(cyan)%s %C(yellow bold)%d"'
 alias gf='git fetch -p'
 alias gfr='gf; grox'
-
-alias ne='PATH=$(npm bin):$PATH'
