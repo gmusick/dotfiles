@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$HOME/bin:/usr/local/bin:node_modules/.bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export PATH=$HOME/bin:/usr/local/bin:node_modules/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
