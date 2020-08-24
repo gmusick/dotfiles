@@ -1,7 +1,12 @@
 [user]
-  name = Greg Musick
-  email = greg.musick@gmail.com
+	name = Greg
+	email = 
 [core]
   autosetuprebase = true
   editor = vim
   excludesfile = ~/src/dotfiles/git/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
