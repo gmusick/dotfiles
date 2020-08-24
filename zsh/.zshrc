@@ -59,7 +59,11 @@ ZSH_CUSTOM=$HOME/src/dotfiles/zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gem osx rails ruby asdf)
+plugins=(git asdf)
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,3 +120,5 @@ alias rake="bundle exec rake"
 alias gitlog='git log --graph --all --decorate --pretty=format:"%C(magenta)%h %C(blue)%ai %C(green)%an %C(cyan)%s %C(yellow bold)%d"'
 alias gf='git fetch -p'
 alias gfr='gf; grox'
+alias rspec='nocorrect bundle exec rspec'
+alias vercel='nocorrect vercel'
