@@ -109,8 +109,13 @@ function gmox {
 function grox {
   __current_branch_action "rebase origin/"
 }
+
 function gpox {
   __current_branch_action "push origin "
+}
+
+function grsox {
+  __current_branch_action "reset --hard origin/"
 }
 
 alias l="ls -lah"
@@ -118,5 +123,6 @@ alias l="ls -lah"
 alias gitlog='git log --graph --all --decorate --pretty=format:"%C(magenta)%h %C(blue)%ai %C(green)%an %C(cyan)%s %C(yellow bold)%d"'
 alias gf='git fetch -p'
 alias gfr='gf; grox'
+alias gfrs='gf; grsox'
 
 alias nv='open -a Neovide'
