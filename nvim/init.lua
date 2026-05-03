@@ -1,5 +1,9 @@
 require("config.lazy")
 
+-- default indentation
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 -- case insensitive search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -47,16 +51,6 @@ end
 -- copy relative path of current buffer
 vim.keymap.set('n', '<leader>cp', CopyBufferName, { noremap = true, silent = true })
 
--- remove trailing whitespace on save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = "*",
-  callback = function()
-    local save_cursor = vim.fn.getpos(".")
-    vim.cmd([[%s/\s\+$//e]])
-    vim.fn.setpos(".", save_cursor)
-  end
-})
-
 -- resize splits when window size changes
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   pattern = "*",
@@ -78,7 +72,6 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>', { desc = 'Clear search highlighting' })
 
 -- format file
--- vim.keymap.set('n', '<leader>=', 'ggVG=', { desc = 'Format file' })
 vim.keymap.set(
   'n',
   '<leader>=',
@@ -103,6 +96,8 @@ vim.keymap.set(
 -- buffer navigation
 vim.keymap.set('n', '<leader>[', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 vim.keymap.set('n', '<leader>]', '<cmd>bn<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<Tab>', '<cmd>bn<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<BS>', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
 -- tab management
 vim.keymap.set('n', '<C-x>', '<cmd>tabclose<cr>', { desc = 'Close tab' })
@@ -119,13 +114,36 @@ vim.keymap.set('n', '<leader>8', '8gt', { desc = 'Go to tab 8' })
 vim.keymap.set('n', '<leader>9', '9gt', { desc = 'Go to tab 9' })
 
 -- quickfix commands
-vim.keymap.set('n', '<leader>q', 'cclose', { desc = 'Close quickfix window' })
+vim.keymap.set('n', '<leader>q', '<cmd>cclose<CR>', { desc = 'Close quickfix window' })
 
+-- lsp setup
+vim.lsp.config('ty', {
+  cmd = { 'ty', 'server' },
+  filetypes = { 'python' },
+  settings = {},
+})
+vim.lsp.enable('ty')
+
+vim.lsp.config('ruff', {
+  cmd = { 'ruff', 'server' },
+  settings = {}
+})
+vim.lsp.enable('ruff')
+
+vim.lsp.config('vtsls', {
+  cmd = { "vtsls", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  init_options = { hostInfo = "neovim" }
+})
+vim.lsp.enable('vtsls')
+
+vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Show diagnostic pop-up' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = 'Show diagnostics in qflist' })
+vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, { desc = 'Show diagnostics in qflist' })
 -- lsp go to definition
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", "<cmd>LspRestart<CR>", { desc = 'Restart LSP', silent = true })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 
-vim.opt.guifont = "Monaspace Neon:h18"
+vim.opt.guifont = "Monaspace Neon NF:h16"
 
 vim.g.neovide_position_animation_length = 0
 vim.g.neovide_cursor_animation_length = 0.00
@@ -150,3 +168,21 @@ end)
 vim.keymap.set("n", "<C-->", function()
   change_scale_factor(1/1.1)
 end)
+
+-- CMD-C to copy (yank) to system clipboard
+vim.keymap.set({'n', 'v'}, '<D-c>', '"+y', { noremap = true })
+
+-- CMD-V to paste from system clipboard
+vim.keymap.set({'n', 'v', 'i'}, '<D-v>', '<C-r>+', { noremap = true })
+
+-- gui tab management
+vim.keymap.set('n', '<D-w>', '<cmd>tabclose<cr>', { noremap = true })
+vim.keymap.set('n', '<D-1>', '1gt', { desc = 'Go to tab 1' })
+vim.keymap.set('n', '<D-2>', '2gt', { desc = 'Go to tab 2' })
+vim.keymap.set('n', '<D-3>', '3gt', { desc = 'Go to tab 3' })
+vim.keymap.set('n', '<D-4>', '4gt', { desc = 'Go to tab 4' })
+vim.keymap.set('n', '<D-5>', '5gt', { desc = 'Go to tab 5' })
+vim.keymap.set('n', '<D-6>', '6gt', { desc = 'Go to tab 6' })
+vim.keymap.set('n', '<D-7>', '7gt', { desc = 'Go to tab 7' })
+vim.keymap.set('n', '<D-8>', '8gt', { desc = 'Go to tab 8' })
+vim.keymap.set('n', '<D-9>', '9gt', { desc = 'Go to tab 9' })
